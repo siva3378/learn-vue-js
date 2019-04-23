@@ -1,0 +1,46 @@
+<body>
+  <div id="app">
+    <div class="demo" @click="attachRed =! attachRed" :class="{red: attachRed, blue: !attachRed}"></div>
+    <div class="demo" @click="attachRed =! attachRed" :class="divClasses"></div>
+  </div>
+</body>
+<style>
+  #app div {
+    width: 200px;
+    height: 200px;
+    margin: 30px;
+  }
+
+  .demo {
+    background: #faf7f7;
+  }
+
+  .red {
+    background: red;
+  }
+
+  .blue {
+    background: blue;
+  }
+
+  .green {
+    background: green;
+  }
+</style>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      attachRed: false
+    },
+    computed:{
+      divClasses: function(){
+        return {
+          red: this.attachRed,
+          blue: !this.attachRed
+        }
+      }
+    }
+  })
+</script>

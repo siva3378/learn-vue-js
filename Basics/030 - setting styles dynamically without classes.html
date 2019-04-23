@@ -1,0 +1,54 @@
+
+<body>
+  <div id="app">
+    <div class="demo" :style="{backgroundColor: color}"></div>
+    <div class="demo" :style="myStyle"></div>
+    <div class="demo"></div>
+    
+    <hr/>
+    <input type="text" v-model="color"/>
+    <input type="number" v-model="width"/>
+
+  </div>
+</body>
+<style>
+  #app div {
+    width: 200px;
+    height: 200px;
+    margin: 30px;
+  }
+
+  .demo {
+    background: #faf7f7;
+  }
+
+  .red {
+    background: red;
+  }
+
+  .blue {
+    background: blue;
+  }
+
+  .green {
+    background: green;
+  }
+</style>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      color: 'green',
+      width: 100
+    },
+    computed:{
+      myStyle: function(){
+        return {
+          backgroundColor: this.color,
+          width: this.width
+        }
+      }
+    }
+  })
+</script>
