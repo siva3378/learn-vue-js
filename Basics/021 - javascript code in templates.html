@@ -1,0 +1,27 @@
+<body>
+		<div id="app">
+			<div>
+				<button v-on:click="increaseBy1">Increase by default value</button>
+				<button v-on:click="counter++">increase counter</button>
+				<p>Actual value: {{counter}}</p>
+				<p>Counter *3: {{counter * 3}}</p>
+				<p>Counter is Even: {{counter % 2 === 0? true: false}}</p>
+			</div>
+		</div>
+	</body>
+	
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				counter: 0,
+			},
+			methods: {
+				increaseBy1: function () {
+					this.counter++;
+				}
+			}
+		})
+	</script>
+	

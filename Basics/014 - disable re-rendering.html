@@ -1,0 +1,24 @@
+<body>
+	<div id="app">
+		<h1 v-once>{{title}}</h1>
+		<p>{{ getTitle() }}</p>
+		<a v-bind:href="link">Open Google</a>
+	</div>
+</body>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			title: 'Hello World!',
+			link: 'http://google.com'
+		},
+		methods: {
+			getTitle: function () {
+				this.title = 'Hello Siva';
+				return this.title;
+			}
+		}
+	})
+</script>

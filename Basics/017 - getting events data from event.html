@@ -1,0 +1,39 @@
+<body>
+	<div id="app">
+		<div>
+			<button v-on:click="increaseBy1"> Increase by default value</button>
+			<button v-on:click="increase(3)"> Increase by 3</button>
+			<p>{{counter}}</p>
+		</div>
+		<div>
+			<p v-on:mousemove="setCoordinates">
+				Coordinates - {{x}} / {{y}}
+			</p>
+		</div>
+		
+	</div>
+</body>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			counter: 0,
+			x:0,
+			y:0
+		},
+		methods: {
+			increaseBy1: function () {
+				this.counter++;
+			},
+			increase: function (by) {
+				this.counter += by;
+			},
+			setCoordinates: function(event){
+				this.x = event.clientX;
+				this.y = event.clientY;
+			}
+		}
+	})
+</script>

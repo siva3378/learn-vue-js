@@ -1,0 +1,49 @@
+<body>
+	<div id="app">
+		<div>
+			<p v-on:mousemove="setCoordinates">
+				Coordinates - {{x}} / {{y}}
+
+				<br/>
+				<span>Not a dead spot</span>
+				<br/>
+				<span v-on:mousemove="deadSpot">DEAD spot: using custom function</span>
+				<br/>
+				<span v-on:mousemove.stop>DEAD spot: using modifiers</span>
+			</p>
+		</div>
+
+		<div>
+			<input type="text" 
+				v-on:keyup.tab="alertMe('tab pressed')" 
+				v-on:keyup.enter="alertMe('enter pressed')"
+				/>
+			<input type="text" v-on:keyup.tab="alertMe" />
+		</div>
+		
+	</div>
+</body>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			counter: 0,
+			x:0,
+			y:0
+		},
+		methods: {
+			setCoordinates: function(event){
+				this.x = event.clientX;
+				this.y = event.clientY;
+			},
+			deadSpot: function(event){
+				event.stopPropagation();
+			},
+			alertMe: function(key){
+				alert(`alert me... ${key}`);
+			}
+		}
+	})
+</script>

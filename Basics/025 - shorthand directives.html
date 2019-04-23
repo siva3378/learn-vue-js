@@ -1,0 +1,23 @@
+<body>
+	<div id="app">
+		<div>
+			<!-- Shorthand for v-on: is @ -->
+			<button @click="counter++">Increase</button>
+			<p>Counter: {{counter}}</p>
+
+			<!-- Shorthand for v-bind: is : -->
+			<a :href="link"></a>
+		</div>
+	</div>
+</body>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			counter: 0,
+			link: 'https://abc.com'
+		}
+	})
+</script>
