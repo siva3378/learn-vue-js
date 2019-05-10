@@ -1,7 +1,7 @@
 <body>
   <div id="app">
     <p v-if="show">You can see me! Hello!</p>
-    <p v-if="!show">Do you also see me?</p>
+    <p v-else>Do you also see me?</p>
     <button @click="show=!show">Switch</button>
   </div>
 </body>
