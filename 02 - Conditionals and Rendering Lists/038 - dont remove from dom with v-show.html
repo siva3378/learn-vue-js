@@ -1,0 +1,16 @@
+<body>
+  <div id="app">
+    <p v-if="show">This will be removes and add this element to the DOM</p>
+    <p v-show="!show">This wont get removed from the DOM but just gets display none</p>
+    <button @click="show=!show">Switch</button>
+  </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      show: true
+    }
+  })
+</script>
