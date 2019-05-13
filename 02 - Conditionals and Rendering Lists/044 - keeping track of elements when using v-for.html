@@ -1,0 +1,27 @@
+<body>
+  <div id="app">
+    <h3>Render only the selected keys from each object</h3>
+    <ul>
+      <li v-for="user in users" :key='user.name'>
+        <h6>Name : {{user.name}}</h6>
+        <p>Age : {{user.age}}</p>
+      </li>
+    </ul>
+    <hr/>
+  </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      users: [
+        { name: 'Siva', age: 30, sex: 'M' },
+        { name: 'Ruchika', age: 28, sex: 'F' },
+        { name: 'Swetha', age: 29, sex: 'F' },
+        { name: 'Raju', age: 58, sex: 'M' },
+        { name: 'Rani', age: 54, sex: 'F' },
+      ],
+    }
+  })
+</script>
