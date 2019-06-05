@@ -1,0 +1,48 @@
+<body>
+	<div id="app1">
+		<p>{{ title }}</p>
+  </div>
+  <div id="app2">
+		<p>{{ title }}</p>
+		<button @click="onChange">Change</button>
+	</div>
+</body>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+	var vm1 = new Vue({
+		el: '#app1',
+		data: {
+			title: 'Hello World! of App 1'
+		},
+		watch:{
+			title: function(newValue){
+				alert('Title change, new value: '+ newValue);
+			}
+		}
+	});
+
+	// you can access and modify the data outside of the vuejs instance
+	setTimeout(function(){
+		vm1.title = "App1's title changed by timeout";
+	}, 3000);
+
+	// we can add new props to vuejs instance but
+	// vuejs neither add proxies nor watches these new members
+	vm1.newProp = "New prop";
+	console.log(vm1);
+
+
+  var vm2 = new Vue({
+		el: '#app2',
+		data: {
+			title: 'Hello World! of App 2'
+		},
+		methods:{
+			onChange: function() {
+				// you can also access and modify the data of a vue instance in other instance
+				vm1.title = "App1's title changed by app2 onchange method"
+			}
+		}
+	});
+</script>

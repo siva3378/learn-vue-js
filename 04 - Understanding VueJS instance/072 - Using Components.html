@@ -1,0 +1,47 @@
+<body>
+	<div id="app1">
+		<p>{{ title }}</p>
+
+		<div>
+			<!-- This will be rendered as many time we use -->
+			<hello-component></hello-component>
+			<hello-component></hello-component>
+		</div>
+	</div>
+
+	<div>
+		<!-- This will be rendered only once -->
+		<hello-template ></hello-template>
+		<hello-template ></hello-template>
+	</div>
+
+
+
+</body>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+
+	Vue.component('hello-component', {
+		template: '<h1>Hello Component! - appears multiple times</h1>'
+	});
+
+	// do all the things what do you want
+	// and keep the vue instance ready
+	// this instance will be avaliable but it is not applied in DOM
+	var vm2 = new Vue({
+		el: 'hello-template',
+		template: '<h1>Hello Template! -  appears only single time eventhough we used twice</h1>'
+	});
+
+
+
+	// this vm1 instance will be avaliable but it is not applied in DOM
+	var vm1 = new Vue({
+		el: '#app1',
+		data: {
+			title: 'Hello World!',
+		}
+	});
+
+</script>

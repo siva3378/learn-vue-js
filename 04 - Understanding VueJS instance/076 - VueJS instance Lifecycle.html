@@ -1,0 +1,54 @@
+<body>
+	<div id="app1">
+		<p>{{ title }}</p>
+		<button @click="title = 'Changed'">Update Title to Changed</button>
+		<button @click="title = 'Reset Title'">Reset Title</button>
+		<button @click="destroy">Destroy</button>
+	</div>
+</body>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+
+	new Vue({
+		el: '#app1',
+		data: {
+			title: 'The VueJS instance',
+		},
+
+		beforeCreate: function () {
+			console.log('beforeCreate');
+		},
+		created: function () {
+			console.log('created');
+		},
+
+		beforeMount: function () {
+			console.log('beforeMount');
+		},
+		mounted: function () {
+			console.log('mounted');
+		},
+
+		beforeUpdate: function () {
+			console.log('beforeUpdate');
+		},
+		updated: function () {
+			console.log('updated');
+		},
+
+		beforeDestroy: function () {
+			console.log('beforeDestroy');
+		},
+		destroyed: function () {
+			console.log('destroyed');
+		},
+
+		methods: {
+			destroy: function () {
+				this.$destroy();
+			}
+		}
+	});
+
+</script>

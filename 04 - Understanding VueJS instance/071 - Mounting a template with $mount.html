@@ -1,0 +1,47 @@
+<body>
+	<div id="app1">
+		<p>{{ title }}</p>
+		<button @click="update">Update</button>
+
+		<div v-bind:id="id"></div>
+	</div>
+
+
+</body>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+
+	// do all the things what do you want
+	// and keep the vue instance ready
+	// this instance will be avaliable but it is not applied in DOM
+	var vm2 = new Vue({
+		template: '<h1>Hello Template!</h1>'
+	});
+
+	// this vm1 instance will be avaliable but it is not applied in DOM
+	var vm1 = new Vue({
+		data: {
+			title: 'Hello World!',
+			id: 'abc'
+		},
+		methods: {
+			update: function () {
+				this.id = "app2";
+				this.title = "Hello World! (Updated by click)";
+
+				// at this point #app2 is not avaliable in DOM yet
+				// so, wait for few sec so that vue apply the changes to DOM
+				setTimeout(function () {
+					// now this will mount vm2 instance to #app2 in DOM
+					vm2.$mount('#app2');
+					vm1.title = "Hello World! (Updated by timeout)";
+				}, 1000);
+			}
+		}
+	});
+
+	// this will mounts the vm1 instance to #app1 in DOM
+	vm1.$mount('#app1');
+
+</script>

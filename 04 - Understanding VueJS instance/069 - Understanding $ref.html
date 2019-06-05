@@ -1,0 +1,45 @@
+<body>
+	<div id="app1">
+		<p>{{ title }}</p>
+		<button @click="show" ref="myButton">Show Paragraph</button>
+		<p v-if="showParagraph"> This is not always visible</p>
+		<h1 ref="heading">{{headingText}}</h1>
+	</div>
+</body>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+	var vm1 = new Vue({
+		el: '#app1',
+		data: {
+			title: 'Hello World! of App 1',
+			showParagraph: false,
+			headingText: 'I am a heading which cannot be modified with $ref'
+		},
+		methods: {
+			show: function () {
+				this.showParagraph = true;
+
+				// this wont get updated as we have change the innerText
+				this.updateTitle('Changed by show method')
+
+				// button text can be changed with $ref
+				this.$refs.myButton.innerText = 'Changed by ref';
+			},
+			updateTitle: function(value){
+				// update the value of vue data
+				this.headingText = value;
+			}
+		}
+	});
+
+	// heading text can be changed with $ref
+	// but this does not update the value of "headingText"
+	// So the template remains same in the vue eventhough we have updated the DOM
+	vm1.$refs.heading.innerText = 'New Heading';
+
+	setTimeout(function () {
+		vm1.title = "App1's title changed by timeout";
+		vm1.show();
+	}, 3000);
+</script>

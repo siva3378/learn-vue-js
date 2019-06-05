@@ -1,0 +1,25 @@
+<body>
+	<div id="app1">
+		<p>{{ title }}</p>
+  </div>
+  <div id="app2">
+		<p>{{ title }}</p>
+	</div>
+</body>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+	new Vue({
+		el: '#app1',
+		data: {
+			title: 'Hello World! of App 1'
+		}
+	});
+
+  new Vue({
+		el: '#app2',
+		data: {
+			title: 'Hello World! of App 2'
+		}
+	});
+</script>
