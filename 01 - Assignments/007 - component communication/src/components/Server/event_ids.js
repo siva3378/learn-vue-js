@@ -1,0 +1,4 @@
+export default {
+  SELECT_SERVER: 'SELECT_SERVER',
+  UPDATE_STATUS: 'UPDATE_STATUS'
+}
