@@ -1,24 +1,27 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <h1>Animations</h1>
-
-            </div>
-        </div>
-    </div>
+  <div class="container">
+    <app-transition-group-demo/>
+    <app-dynamic-component-animation />
+    <app-js-animation-demo />
+    <app-css-animation-demo />
+  </div>
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
+import CssAnimationDemo from "./CssAnimationDemo.vue";
+import JsAnimationDemo from "./JsAnimationDemo.vue";
+import DynamicComponentAnimation from "./DynamicComponentAnimation.vue";
+import TransitionGroupDemo from "./TransitionGroupDemo.vue";
 
-            }
-        }
-    }
+export default {
+  components: {
+    "app-css-animation-demo": CssAnimationDemo,
+    "app-js-animation-demo": JsAnimationDemo,
+    "app-dynamic-component-animation": DynamicComponentAnimation,
+    "app-transition-group-demo": TransitionGroupDemo,
+  }
+};
 </script>
 
 <style>
-
 </style>
