@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils'
-import MyButton from "./MyButton.vue";
+import Button from "./Button.vue";
 
-describe('MyButton.vue', () => {
+describe('Button.vue', () => {
   it('renders button label', () => {
     const msg = 'new message'
-    const wrapper = shallowMount(MyButton, {
+    const wrapper = shallowMount(Button, {
       slots:{default: msg}
     });
     expect(wrapper.text()).toMatch(msg)

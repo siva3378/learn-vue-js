@@ -8,9 +8,9 @@
 import { Component, Prop, Vue, Emit } from "vue-property-decorator";
 
 @Component({
-  name: "my-button"
+  name: "app-button"
 })
-export default class MyButton extends Vue {
+export default class Button extends Vue {
   @Emit("click")
   onClick() {
     alert('Hello')
